@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
+    <title>Welcome to St. Teresa Benedicta</title>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="images/audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <img src="images/collage.jpeg" id="background-image" alt="Background image of our class photos">
+    <div id="overlay"></div>
+    <main>
+    <header>
+        <img src="images/st-benedicta.jpg" id="header-image" alt="St. Teresa Benedicta">
+        <div class="header-content">
+            <span class="move" id="st">ST.</span>
+            <span class="move" id="teresa">TERESA</span>
+            <span class="move" id="benedicta">BENEDICTA</span>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#ribbon">Welcome</a>
+        <a href="#memory">Memory Lane</a>
+        <a href="#adviser-photo">Adviser</a>
+        <a href="#officers">Officers</a>
+        <a href="#students">Students</a>
+    </nav>
+
+    <section class="memory-lane" id="memory">
+        <div class="memory-content">
+            <h2>Memory Lane</h2>
+            <img src="images/class-pictures.jpg" id="classPicture" class="memory-photo">
+            <img src="images/events.jpg" id="eventsPicture" class="memory-photo">
+            <img src="images/achievements.png" id="achievementsPicture" class="memory-photo">
+            <h2><mark>📌More photos are coming soon!</mark></h2>
+        </div>
+    </section>
+<div id="classPicture-modal">
+    <span class="close" onclick="closeClassPictureModal()">&times;</span>
+    <div class="carousel-container">
+        <figure>
+            <img id="carousel-image" src="images/class-1.jpg" alt="Class Picture">
+            <figcaption id="carousel-caption">Class Pictures</figcaption>
+        </figure>
+        <button id="prev" onclick="prevImage()">&#10094;</button>
+        <button id="next" onclick="nextImage()">&#10095;</button>
+    </div>
+</div>
+
+<div id="eventsPicture-modal">
+    <span class="close" onclick="closeEventsPictureModal()">&times;</span>
+    <div class="carousel-container">
+        <figure>
+            <img id="events-carousel-image" src="" alt="Event Image">
+            <figcaption id="events-carousel-caption">Events</figcaption>
+        </figure>
+        <button id="events-prev" onclick="prevEventImage()">&#10094;</button>
+        <button id="events-next" onclick="nextEventImage()">&#10095;</button>
+    </div>
+</div>
+
+<div id="achievementsPicture-modal">
+    <span class="close" onclick="closeAchievementsPictureModal()">&times;</span>
+    <div class="carousel-container">
+        <figure>
+            <img id="achievements-carousel-image" src="" alt="Achievement Image">
+            <figcaption id="achievements-carousel-caption">Achievements</figcaption>
+        </figure>
+        <button id="achievements-prev" onclick="prevAchievementImage()">&#10094;</button>
+        <button id="achievements-next" onclick="nextAchievementImage()">&#10095;</button>
+    </div>
+</div>
+
+    <div class="vertical-container">
+        <section class="ribbon" id="ribbon">
+            <img src="images/ribbon2.png" id="ribbon-image" alt="ribbon">
+            <h2>Welcome to our class website!</h2>
+        </section>
+
+        <section class="adviser-section">
+            <img src="images/maam-camille.jpg" id="adviser-photo" alt="Ms. Camille Bachicha">
+            <h2>Ms. Camille Bachicha</h2>
+            <p>Welcome to our class website! I am thrilled to have you here. Let's make this year a memorable and successful one together. 
+            We are excited to embark on this journey of learning, growth, and achievement.</p>
+        </section>
+
+        <section class="officers-section" id="officers">
+            <h2>Our Class Officers</h2>
+            <img src="images/officers.png" class="reveal" id="officers-photo" alt="Class Officers">
+        </section>
+
+        <div id="student-modal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-photo" class="student-photo" src="" alt="Student Photo">
+            <p id="modal-name"></p>
+            <hr>
+            <div class="modal-info">
+                <p id="modal-birthdate"><strong>Birthdate:</strong> <span id="modal-birthdate-value"></span></p>
+                <p id="modal-hobbies"><strong>Hobbies:</strong> <span id="modal-hobbies-value"></span></p>
+                <p id="modal-motto"><strong>Motto:</strong> <span id="modal-motto-value"></span></p>
+            </div>
+        </div>
+        
+        <h2 id="students-title">Meet the Students</h2>
+        <div class="students-container reveal">
+            <section class="student-grid-first" id="students">
+                <div class="student-card" onclick="openModal('students/brecinio2.jpg', 'Brecinio, Sydney', 'November 15, 2010', 'Playing online games', '“Study hard they say, but I headbang harder”')">
+                    <img src="students/brecinio.jpg" class="student-photo">
+                    <p class="student-name">Brecinio, Sydney Margaux</p>
+                </div>
+        
+                <div class="student-card" onclick="openModal('students/salgo2.jpg', 'Salgo, Randolf', 'June 22, 2011', 'Playing video games, exploring, cooking', 'Basta buhay, tagay eyyy ka muna eyyy🤙')">
+                    <img src="students/salgo.jpg" class="student-photo">
+                    <p class="student-name">Salgo, Randolf Jr. M.</p>
+                </div>
+        
+                <div class="student-card" onclick="openModal('students/asuncion2.jpg', 'Asuncion, Emmanuel', 'July 9, 2011', 'Basketball, crossfire', 'As long as God keeps waking you up, he still has a plan for you.')">
+                    <img src="students/asuncion.jpg" class="student-photo">
+                    <p class="student-name">Asuncion, Emmanuel S.</p>
+                </div>
+        
+                <div class="student-card" onclick="openModal('students/saraspi2.jpg', 'Saraspi, Mica Ella', 'May 12, 2011', 'Badminton, and designing', 'Be the change you want to see in the world.')">
+                    <img src="students/saraspi.jpg" class="student-photo">
+                    <p class="student-name">Saraspi, Mica Ella Kirsten D.</p>
+                </div>
+
+                <div class="student-card" onclick="openModal('students/bondoc2.jpg', 'Bondoc, Audrey', 'November 12, 2010', 'Makeup, listening to music, watching 2000s movies', '“Learn to rest, not to quit.”')">
+                    <img src="students/bondoc.jpg" class="student-photo">
+                    <p class="student-name">Bondoc, Audrey Loureyn J.</p>
+                </div>
+                <div class="student-card" onclick="openModal('students/cruz2.jpg', 'Cruz, Dwayne Chael', 'March 15, 2011', 'Watching movies', 'Better an \'oops\' than a \'what if\'.')">
+                    <img src="students/cruz.jpg" class="student-photo">
+                    <p class="student-name">Cruz, Dwayne Chael A.</p>
+                </div>
+        
+                <div class="student-card" onclick="openModal('students/pineda2.jpg', 'Pineda, Dan Carlos', 'October 27, 2011', 'Volleyball, eating', '“Life is a game.”')">
+                    <img src="students/pineda.jpg" class="student-photo">
+                    <p class="student-name">Pineda, Dan Carlos</p>
+                </div>
+        
+                <div class="student-card" onclick="openModal('students/adriano-s2.jpg', 'Adriano, Samuelle Bea', 'September 30, 2010', 'Cooking, playing video games, making bracelets', 'My favorite study method is telling my friends to pray for me to pass.')">
+                    <img src="students/adriano-s.jpg" class="student-photo">
+                    <p class="student-name">Adriano, Samuelle Bea M.</p>
+                </div>
+        
+                <div class="student-card" onclick="openModal('students/de-dios2.jpg', 'de Dios, Xymonn Given', 'January 26, 2011', 'Playing basketball, collecting shoes', 'Tamad ako pero may pangarap din ako.')">
+                    <img src="students/de-dios.jpg" class="student-photo">
+                    <p class="student-name">de Dios, Xymonn Given D.</p>
+                </div>
+        
+                <div class="student-card" onclick="openModal('students/del-mundo2.jpg', 'Del Mundo, Kelvin Aiken', 'December 24, 2010', 'Playing Badminton, watching anime, playing games', 'When you give up, that`s when the game ends.')">
+                    <img src="students/del-mundo.jpg" class="student-photo">
+                    <p class="student-name">Del Mundo, Kelvin Aiken C.</p>
+                </div>
+            
+            </section>
+            <section class="student-grid-second">
+                <div class="student-card" onclick="openModal('students/magsino-c2.jpg', 'Magsino, Charielle', 'August 27, 2011', 'Paint, sketch, listen to music, play badminton.', '“Live every day of your life like it’s your last.”')">
+                    <img src="students/magsino-c.jpg" class="student-photo">
+                    <p class="student-name">Magsino, Charielle M.</p>
+                </div>
+            
+                <div class="student-card" onclick="openModal('students/pangilinan2.jpg', 'Pangilinan, Neithan', 'June 10, 2010', 'Playing basketball, watching movies, playing outside.', '“The truth will lead you to success in life.”')">
+                    <img src="students/pangilinan.jpg" class="student-photo">
+                    <p class="student-name">Pangilinan, Neithan P.</p>
+                </div>
+            
+                <div class="student-card" onclick="openModal('students/isidro2.jpg', 'Isidro, Patrick James', 'September 14, 2011', 'Play volleyball, dance, sing.', '“I am you, you are me, we are all one within.”')">
+                    <img src="students/isidro.jpg" class="student-photo">
+                    <p class="student-name">Isidro, Patrick James S.</p>
+                </div>
+            
+                <div class="student-card" onclick="openModal('students/garcia2.jpg', 'Garcia, Kylie', 'April 8, 2011', 'Acting, singing, playing video games.', '“I dress to impress myself.”')">
+                    <img src="students/garcia.jpg" class="student-photo">
+                    <p class="student-name">Garcia, Kylie P.</p>
+                </div>
+            
+                <div class="student-card" onclick="openModal('students/llanes2.jpg', 'Llanes, Jael Zee', 'August 16, 2011', 'Sleeping.', '“Life is a soup and I\'m a fork.”')">
+                    <img src="students/llanes.jpg" class="student-photo">
+                    <p class="student-name">Llanes, Jael Zee P.</p>
+                </div>
+                <div class="student-card" onclick="openModal('students/santos-p2.jpg', 'Santos, Peter Paul', 'May 20, 2012', 'Cooking, gaming, vlogging.', '“Learn from yesterday. Live for today. Hope for tomorrow.”')">
+                    <img src="students/santos-p.jpg" class="student-photo">
+                    <p class="student-name">Santos, Peter Paul S.</p>
+                </div>
+            
+                <div class="student-card" onclick="openModal('students/mayor2.jpg', 'Mayor, Adriel Mhartin', 'December 18, 2010', 'Basketball.', '“Never let your memories be greater than your dreams.”')">
+                    <img src="students/mayor.jpg" class="student-photo">
+                    <p class="student-name">Mayor, Adriel Mhartin S.</p>
+                </div>
+            
+                <div class="student-card" onclick="openModal('students/corpuz2.jpg', 'Corpuz, Gedrace', 'April 25, 2011', 'Travelling.', '“Embrace the life journey with God\'s guidance, as every step shapes your unique path to greatness.”')">
+                    <img src="students/corpuz.jpg" class="student-photo">
+                    <p class="student-name">Corpuz, Gedrace Maerimond A.</p>
+                </div>
+            
+                <div class="student-card" onclick="openModal('students/mangon2.jpg', 'Mangon, Chrysia Lara', 'January 19, 2011', 'Playing volleyball, doing make-up.', '“Konting bato, konting damo, arestado.”')">
+                    <img src="students/mangon.jpg" class="student-photo">
+                    <p class="student-name">Mangon, Chrysia Lara L.</p>
+                </div>
+            
+                <div class="student-card" onclick="openModal('students/luna2.jpg', 'Luna, Miguel Julio', 'March 8, 2011', 'Drawing.', '“I can do all things through Christ who strengthens me.”')">
+                    <img src="students/luna.jpg" class="student-photo">
+                    <p class="student-name">Luna, Miguel Julio A.</p>
+                </div>
+            </section>
+            <section class="student-grid-third">
+                <div class="student-card" onclick="openModal('students/lavalle2.jpg', 'Lavalle, Keshney Jhay', 'May 27, 2011', 'Cooking, shopping, traveling', '“Live life to the fullest.”')">
+                    <img src="students/lavalle.jpg" class="student-photo">
+                    <p class="student-name">Lavalle, Keshney Jhay</p>
+                </div>
+
+                <div class="student-card" onclick="openModal('students/geraldo2.jpg', 'Geraldo, Wade Jashley', 'September 7, 2011', 'Playing games', '“The way to success in life is to learn from your failures.”')">
+                    <img src="students/geraldo.jpg" class="student-photo">
+                    <p class="student-name">Geraldo, Wade Jashley</p>
+                </div>
+
+                <div class="student-card" onclick="openModal('students/lim2.jpg', 'Lim, Shawn Riley', 'September 5, 2010', 'Cooking', '“Family First.”')">
+                    <img src="students/lim.jpg" class="student-photo">
+                    <p class="student-name">Lim, Shawn Riley</p>
+                </div>
+
+                <div class="student-card" onclick="openModal('students/adriano-a2.jpg', 'Adriano, Kendra Allyzei', 'December 17, 2011', 'Drawing, singing, playing online games, watching movies', '“Fake it until you make it.”')">
+                    <img src="students/adriano-a.jpg" class="student-photo">
+                    <p class="student-name">Adriano, Kendra Allyzei</p>
+                </div>
+
+                <div class="student-card" onclick="openModal('students/magsino-n2.jpg', 'Magsino, Noryl Ann', 'August 14, 2010', 'Playing volleyball, watching TV series while eating buldak, doing makeup', '“You will never win if you never begin.”')">
+                    <img src="students/magsino-n.jpg" class="student-photo">
+                    <p class="student-name">Magsino, Noryl Ann</p>
+                </div>
+
+                <div class="student-card" onclick="openModal('students/cuyos2.jpg', 'Cuyos, John Jacob', 'August 22, 2011', 'Mag-bike, sleeping, playing ML', '“Matalino ako pag tulog.”')">
+                    <img src="students/cuyos.jpg" class="student-photo">
+                    <p class="student-name">Cuyos, John Jacob</p>
+                </div>
+
+                <div class="student-card" onclick="openModal('students/se2.jpg', 'Se, Renzi Ross', 'May 29, 2011', 'Basketball', '“Work in private.”')">
+                    <img src="students/se.jpg" class="student-photo">
+                    <p class="student-name">Se, Renzi Ross</p>
+                </div>
+
+                <div class="student-card" onclick="openModal('students/malubay2.jpg', 'Malubay, Elisha Kyra', 'November 12, 2010', 'Volleyball, listening to music, sleeping', '“Explore new things and go crazy, YOLO.”')">
+                    <img src="students/malubay.jpg" class="student-photo">
+                    <p class="student-name">Malubay, Elisha Kyra</p>
+                </div>
+
+                <div class="student-card" onclick="openModal('students/caballero2.jpg', 'Caballero, Hermagne', 'April 15, 2011', 'Doing my makeup, volleyball', '“Punishments are just temporary, but memories are permanent.”')">
+                    <img src="students/caballero.jpg" class="student-photo">
+                    <p class="student-name">Caballero, Hermagne Blair R.</p>
+                </div>
+
+                <div class="student-card" onclick="openModal('students/vicquerra2.jpg', 'Vicquerra, Dirk Efriel', 'October 11, 2010', 'Basketball, cooking, playing video games', '“PRAY AND NEVER GIVE UP.”')">
+                    <img src="students/vicquerra.jpg" class="student-photo">
+                    <p class="student-name">Vicquerra, Dirk Efriel</p>
+                </div>
+            </section>
+            <section class="student-grid-fourth">
+                <div class="student-card" onclick="openModal('students/tolentino2.jpg', 'Tolentino, Christine', 'July 05, 2011', 'Playing games, studying, sleeping', '“iyak saglit, slay na ulit”')">
+                    <img src="students/tolentino.jpg" class="student-photo">
+                    <p class="student-name">Tolentino, Christine Kellie B.</p>
+                </div>
+                
+                <div class="student-card" onclick="openModal('students/katindig2.jpg', 'Katindig, Ashley Vince', 'October 13, 2009', 'Basketball, volleyball', '“Don\'t tell mama about last night”')">
+                    <img src="students/katindig.jpg" class="student-photo">
+                    <p class="student-name">Katindig, Ashley Vince D.</p>
+                </div>
+                
+                <div class="student-card" onclick="openModal('students/yabut2.jpg', 'Yabut, Bret Jairo', 'November 24, 2010', 'Chess', '“No matter what, just keep going”')">
+                    <img src="students/yabut.jpg" class="student-photo">
+                    <p class="student-name">Yabut, Bret Jairo T.</p>
+                </div>
+                
+                <div class="student-card" onclick="openModal('students/franco2.jpg', 'Franco, Mikaela', 'April 05, 2011', 'Watching movies', '“Don\'t strive for perfection but progress.”')">
+                    <img src="students/franco.jpg" class="student-photo">
+                    <p class="student-name">Franco, Mikaela L.</p>
+                </div>
+                
+                <div class="student-card" onclick="openModal('students/camacho2.jpg', 'Camacho, Julienne', 'May 26, 2011', 'Reading, writing, and playing the piano.', '“In the middle of every difficulty lies an opportunity.”')">
+                    <img src="students/camacho.jpg" class="student-photo">
+                    <p class="student-name">Camacho, Julienne Ysabel J.</p>
+                </div>
+                
+                <div class="student-card" onclick="openModal('students/santos-a2.jpg', 'Santos, Aldrich Maury', 'September 19, 2011', 'Basketball', 'Better late than never.')">
+                    <img src="students/santos-a.jpg" class="student-photo">
+                    <p class="student-name">Santos, Aldrich Maury D.</p>
+                </div>
+                
+                <div class="student-card" onclick="openModal('students/manansala2.jpg', 'Manansala, Simon', 'March 29, 2011', 'Basketball', 'I LOVE KANYE WEST')">
+                    <img src="students/manansala.jpg" class="student-photo">
+                    <p class="student-name">Manansala, Simon Matthew C.</p>
+                </div>
+                
+                <div class="student-card" onclick="openModal('students/vasquez2.jpg', 'Vasquez, Jazz Loreign', 'May 22, 2011', 'Playing online games, building Lego', '“Experience is the best teacher.”')">
+                    <img src="students/vasquez.jpg" class="student-photo">
+                    <p class="student-name">Vasquez, Jazz Loreign D.</p>
+                </div>
+                
+                <div class="student-card" onclick="openModal('students/garnel2.jpg', 'Garnel, Briana Anne', 'December 20, 2010', 'Makeup, shopping, and cooking.', 'Spend freely while you have money.')">
+                    <img src="students/garnel.jpg" class="student-photo">
+                    <p class="student-name">Garnel, Briana Anne G.</p>
+                </div>
+                
+                <div class="student-card" onclick="openModal('students/ranoco2.jpg', 'Rañoco, Wil Zymaki', 'December 2, 2010', 'Video games', '“You aren’t what you say you\'ll do, you are what you do.”')">
+                    <img src="students/ranoco.jpg" class="student-photo">
+                    <p class="student-name">Rañoco, Wil Zymaki S.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About us</h3>
+                <p><a href="#ribbon">About our class</a></p>
+                <p><a href="#adviser-photo">Our Class Adviser</a></p>
+                <p><a href="https://www.franciscanmedia.org/saint-of-the-day/saint-teresa-benedicta-of-the-cross/">Patron Saint Info</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#top">Home</a></p>
+                <p><a href="#memory">Gallery</a></p>
+                <p><a href="#students">Students</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>📧 Email: camillebachicha@mcstayuman.edu.ph</p>
+                <p>☎️ Phone: 000000000</p>
+                <p>🔗<a href="https://www.facebook.com/profile.php?id=100083511549214">Facebook</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><mark>© SY 2024-2025 St. Teresa Benedicta. All rights reserved.</mark></p>
+        </div>
+    </footer>    
+</body>
+</html>
